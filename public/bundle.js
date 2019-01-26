@@ -138,7 +138,42 @@ eval("\n/**\n * When source maps are enabled, `style-loader` uses a link element
 /*! exports provided: 0, default */
 /***/ (function(module) {
 
-eval("module.exports = [{\"id\":0,\"locations\":[{\"id\":0,\"title\":\"Tavern\",\"css\":{\"left\":\"200px\",\"top\":\"150px\",\"width\":\"100px\",\"height\":\"100px\",\"background-color\":\"brown\"}},{\"id\":1,\"title\":\"Home\",\"css\":{\"left\":\"300px\",\"top\":\"500px\",\"width\":\"100px\",\"height\":\"150px\",\"background-color\":\"green\"}}]}];\n\n//# sourceURL=webpack:///./src/data/areas.json?");
+eval("module.exports = [{\"id\":0,\"locations\":[0,1]}];\n\n//# sourceURL=webpack:///./src/data/areas.json?");
+
+/***/ }),
+
+/***/ "./src/data/locations.json":
+/*!*********************************!*\
+  !*** ./src/data/locations.json ***!
+  \*********************************/
+/*! exports provided: 0, 1, default */
+/***/ (function(module) {
+
+eval("module.exports = [{\"id\":0,\"title\":\"Tavern\",\"css\":{\"left\":\"200px\",\"top\":\"150px\",\"width\":\"100px\",\"height\":\"100px\",\"background-color\":\"brown\"}},{\"id\":1,\"title\":\"Home\",\"css\":{\"left\":\"250px\",\"top\":\"150px\",\"width\":\"100px\",\"height\":\"150px\",\"background-color\":\"green\"}}];\n\n//# sourceURL=webpack:///./src/data/locations.json?");
+
+/***/ }),
+
+/***/ "./src/js/data.js":
+/*!************************!*\
+  !*** ./src/js/data.js ***!
+  \************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _data_areas_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../data/areas.json */ \"./src/data/areas.json\");\nvar _data_areas_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../data/areas.json */ \"./src/data/areas.json\", 1);\n/* harmony import */ var _data_locations_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../data/locations.json */ \"./src/data/locations.json\");\nvar _data_locations_json__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../data/locations.json */ \"./src/data/locations.json\", 1);\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (class {\n  constructor() {\n    this.areas = null;\n    this.locations = _data_locations_json__WEBPACK_IMPORTED_MODULE_1__;\n    this.setAreas();\n  }\n\n  setAreas() {\n    let result = [];\n\n    _data_areas_json__WEBPACK_IMPORTED_MODULE_0__.forEach(_area => {\n      _area.locations = _area.locations.map(locationId => this.getLocation(locationId));\n      result.push(_area);\n    });\n\n    this.areas = result;\n  }\n\n  getArea(id) {\n    return this.areas.find(a => {\n      return a.id == id;\n    });\n  }\n\n  getLocation(id) {\n    return this.locations.find(l => {\n      return l.id == id;\n    });\n  }\n\n});\n\n//# sourceURL=webpack:///./src/js/data.js?");
+
+/***/ }),
+
+/***/ "./src/js/game.js":
+/*!************************!*\
+  !*** ./src/js/game.js ***!
+  \************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _data_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data.js */ \"./src/js/data.js\");\n\nconst data = new _data_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n/* harmony default export */ __webpack_exports__[\"default\"] = (class {\n  constructor() {\n    this.canvas = document.getElementById('canvas');\n    this.areaId = 0;\n    this.area = null;\n    this.setArea(0);\n    this.drawArea();\n  }\n\n  setArea(index) {\n    this.area = data.getArea(index);\n  }\n\n  drawArea() {\n    this.area.locations.forEach(location => {\n      let div = document.createElement('div');\n      div.classList.add('location');\n      Object.entries(location.css).forEach(rule => {\n        div.style[rule[0]] = rule[1];\n      });\n      let tooltip = document.createElement('div');\n      tooltip.classList.add('tooltip');\n      tooltip.textContent = location.title;\n      div.appendChild(tooltip);\n      this.canvas.appendChild(div);\n    });\n  }\n\n});\n\n//# sourceURL=webpack:///./src/js/game.js?");
 
 /***/ }),
 
@@ -150,7 +185,7 @@ eval("module.exports = [{\"id\":0,\"locations\":[{\"id\":0,\"title\":\"Tavern\",
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _data_areas_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../data/areas.json */ \"./src/data/areas.json\");\nvar _data_areas_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../data/areas.json */ \"./src/data/areas.json\", 1);\n__webpack_require__(/*! ../scss/main.scss */ \"./src/scss/main.scss\");\n\n\n\nclass Game {\n  constructor() {\n    this.canvas = document.getElementById('canvas');\n    this.areaId = 0;\n    this.area = null;\n    this.setArea(0);\n    this.drawArea();\n  }\n\n  setArea(index) {\n    this.area = _data_areas_json__WEBPACK_IMPORTED_MODULE_0__.find(l => {\n      return l.id == index;\n    });\n  }\n\n  drawArea() {\n    this.area.locations.forEach(location => {\n      let div = document.createElement('div');\n      div.classList.add('location');\n      Object.entries(location.css).forEach(rule => {\n        div.style[rule[0]] = rule[1];\n      });\n      let tooltip = document.createElement('div');\n      tooltip.classList.add('tooltip');\n      tooltip.textContent = location.title;\n      div.appendChild(tooltip);\n      this.canvas.appendChild(div);\n    });\n  }\n\n}\n\ndocument.addEventListener('mousemove', function (e) {\n  const tooltips = document.getElementsByClassName('tooltip');\n  Object.keys(tooltips).forEach(key => {\n    const tooltip = tooltips[key];\n    let offsetX = 20;\n    let offsetY = 20;\n    if (window.innerWidth - e.pageX < 90) offsetX = -90;\n    if (window.innerHeight - e.pageY < 90) offsetY = -50;\n    tooltip.style.left = e.pageX + offsetX + 'px';\n    tooltip.style.top = e.pageY + offsetY + 'px';\n  });\n});\nnew Game();\n\n//# sourceURL=webpack:///./src/js/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _game_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./game.js */ \"./src/js/game.js\");\n__webpack_require__(/*! ../scss/main.scss */ \"./src/scss/main.scss\");\n\n // listener to position tooltips on mouse\n\ndocument.addEventListener('mousemove', function (e) {\n  const tooltips = document.getElementsByClassName('tooltip');\n  Object.keys(tooltips).forEach(key => {\n    const tooltip = tooltips[key];\n    let offsetX = 20;\n    let offsetY = 20;\n    if (window.innerWidth - e.pageX < 90) offsetX = -90;\n    if (window.innerHeight - e.pageY < 90) offsetY = -50;\n    tooltip.style.left = e.pageX + offsetX + 'px';\n    tooltip.style.top = e.pageY + offsetY + 'px';\n  });\n});\nnew _game_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n\n//# sourceURL=webpack:///./src/js/main.js?");
 
 /***/ }),
 

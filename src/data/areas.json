@@ -2,28 +2,7 @@
   {
     "id": 0,
     "locations": [
-      {
-        "id": 0,
-        "title": "Tavern",
-        "css": {
-          "left": "200px",
-          "top": "150px",
-          "width": "100px",
-          "height": "100px",
-          "background-color": "brown"
-        }
-      },
-      {
-        "id": 1,
-        "title": "Home",
-        "css": {
-          "left": "300px",
-          "top": "500px",
-          "width": "100px",
-          "height": "150px",
-          "background-color": "green"
-        }
-      }
+      0, 1
     ]
   }
 ]
