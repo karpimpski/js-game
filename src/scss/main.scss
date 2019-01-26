@@ -1,11 +1,15 @@
 $bg: rgb(43, 43, 43);
 
 body {
-  background-color: $bg
+  background-color: $bg;
+  overflow: hidden;
 }
 
-.canvas {
+#canvas {
   position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .location {

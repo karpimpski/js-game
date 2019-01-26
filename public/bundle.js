@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"body {\\n  background-color: #2b2b2b; }\\n\\n.canvas {\\n  position: relative; }\\n\\n.location {\\n  position: absolute;\\n  transition: all 0.3s; }\\n\\n.location:hover {\\n  box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.3);\\n  cursor: pointer; }\\n\\n.location:active {\\n  box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.5); }\\n\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./src/scss/main.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/lib/loader.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"body {\\n  background-color: #2b2b2b;\\n  overflow: hidden; }\\n\\n#canvas {\\n  position: relative;\\n  width: 100%;\\n  height: 100%;\\n  overflow: hidden; }\\n\\n.location {\\n  position: absolute;\\n  transition: all 0.3s; }\\n\\n.location:hover {\\n  box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.3);\\n  cursor: pointer; }\\n\\n.location:active {\\n  box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.5); }\\n\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./src/scss/main.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/lib/loader.js");
 
 /***/ }),
 
@@ -138,7 +138,7 @@ eval("\n/**\n * When source maps are enabled, `style-loader` uses a link element
 /*! exports provided: 0, default */
 /***/ (function(module) {
 
-eval("module.exports = [{\"id\":0,\"locations\":[{\"css\":{\"left\":\"200px\",\"top\":\"150px\",\"width\":\"100px\",\"height\":\"100px\",\"background-color\":\"brown\"}},{\"css\":{\"left\":\"350px\",\"top\":\"150px\",\"width\":\"100px\",\"height\":\"150px\",\"background-color\":\"green\"}}]}];\n\n//# sourceURL=webpack:///./src/data/areas.json?");
+eval("module.exports = [{\"id\":0,\"locations\":[{\"css\":{\"left\":\"200px\",\"top\":\"150px\",\"width\":\"100px\",\"height\":\"100px\",\"background-color\":\"brown\"}},{\"css\":{\"left\":\"2000px\",\"top\":\"150px\",\"width\":\"100px\",\"height\":\"150px\",\"background-color\":\"green\"}}]}];\n\n//# sourceURL=webpack:///./src/data/areas.json?");
 
 /***/ }),
 
