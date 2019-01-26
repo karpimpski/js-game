@@ -1,3 +1,3 @@
-# webpack-skeleton
+# js-game
 
-A bare-bones setup for a static website including ES6 modules and SCSS.
+Unnamed JavaScript game using DOM elements for simple navigation.
