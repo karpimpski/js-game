@@ -1,0 +1,25 @@
+[
+  {
+    "id": 0,
+    "locations": [
+      {
+        "css": {
+          "left": "200px",
+          "top": "150px",
+          "width": "100px",
+          "height": "100px",
+          "background-color": "brown"
+        }
+      },
+      {
+        "css": {
+          "left": "350px",
+          "top": "150px",
+          "width": "100px",
+          "height": "150px",
+          "background-color": "green"
+        }
+      }
+    ]
+  }
+]
