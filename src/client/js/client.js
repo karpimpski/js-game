@@ -1,5 +1,11 @@
 require('../scss/main.scss')
+import { ipcRenderer } from 'electron'
 import Game from './game.js'
+
+ipcRenderer.send('test', 'message')
+ipcRenderer.on('test', function(event, val) {
+  console.log(val)
+})
 
 // listener to position tooltips on mouse
 document.addEventListener('mousemove', function(e) {

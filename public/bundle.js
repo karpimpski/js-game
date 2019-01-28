@@ -161,7 +161,7 @@ eval("module.exports = [{\"id\":0,\"title\":\"Tavern\",\"css\":{\"left\":\"200px
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _game_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./game.js */ \"./src/client/js/game.js\");\n__webpack_require__(/*! ../scss/main.scss */ \"./src/client/scss/main.scss\");\n\n // listener to position tooltips on mouse\n\ndocument.addEventListener('mousemove', function (e) {\n  const tooltips = document.getElementsByClassName('tooltip');\n  Object.keys(tooltips).forEach(key => {\n    const tooltip = tooltips[key];\n    let offsetX = 20;\n    let offsetY = 20;\n    if (window.innerWidth - e.pageX < 90) offsetX = -90;\n    if (window.innerHeight - e.pageY < 90) offsetY = -50;\n    tooltip.style.left = e.pageX + offsetX + 'px';\n    tooltip.style.top = e.pageY + offsetY + 'px';\n  });\n});\nnew _game_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n\n//# sourceURL=webpack:///./src/client/js/client.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var electron__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! electron */ \"electron\");\n/* harmony import */ var electron__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(electron__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _game_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./game.js */ \"./src/client/js/game.js\");\n__webpack_require__(/*! ../scss/main.scss */ \"./src/client/scss/main.scss\");\n\n\n\nelectron__WEBPACK_IMPORTED_MODULE_0__[\"ipcRenderer\"].send('test', 'message');\nelectron__WEBPACK_IMPORTED_MODULE_0__[\"ipcRenderer\"].on('test', function (event, val) {\n  console.log(val);\n}); // listener to position tooltips on mouse\n\ndocument.addEventListener('mousemove', function (e) {\n  const tooltips = document.getElementsByClassName('tooltip');\n  Object.keys(tooltips).forEach(key => {\n    const tooltip = tooltips[key];\n    let offsetX = 20;\n    let offsetY = 20;\n    if (window.innerWidth - e.pageX < 90) offsetX = -90;\n    if (window.innerHeight - e.pageY < 90) offsetY = -50;\n    tooltip.style.left = e.pageX + offsetX + 'px';\n    tooltip.style.top = e.pageY + offsetY + 'px';\n  });\n});\nnew _game_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\n\n//# sourceURL=webpack:///./src/client/js/client.js?");
 
 /***/ }),
 
@@ -197,6 +197,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _dat
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("\nvar content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/lib/loader.js!./main.scss */ \"./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/lib/loader.js!./src/client/scss/main.scss\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ \"./node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./src/client/scss/main.scss?");
+
+/***/ }),
+
+/***/ "electron":
+/*!***************************!*\
+  !*** external "electron" ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"electron\");\n\n//# sourceURL=webpack:///external_%22electron%22?");
 
 /***/ })
 

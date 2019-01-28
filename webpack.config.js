@@ -3,6 +3,7 @@ var path = require('path');
 module.exports = {
   mode: 'development',
   entry: './src/client/js/client.js',
+  target: 'electron-renderer',
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js'

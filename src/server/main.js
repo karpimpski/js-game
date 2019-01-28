@@ -1,10 +1,10 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 
 let win
 
 function createWindow () {
   win = new BrowserWindow({ width: 800, height: 600, webSecurity: false})
-  win.loadFile(__dirname + '/../public/index.html')
+  win.loadFile(__dirname + '/../../public/index.html')
   win.maximize()
 
   win.webContents.openDevTools()
@@ -26,4 +26,9 @@ app.on('activate', () => {
   if (win === null) {
     createWindow()
   }
+})
+
+ipcMain.on('test', function(event, message) {
+  console.log(message)
+  win.webContents.send('test', message + '!!!!!!!!!!')
 })
