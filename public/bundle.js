@@ -131,28 +131,6 @@ eval("\n/**\n * When source maps are enabled, `style-loader` uses a link element
 
 /***/ }),
 
-/***/ "./src/client/data/areas.json":
-/*!************************************!*\
-  !*** ./src/client/data/areas.json ***!
-  \************************************/
-/*! exports provided: 0, default */
-/***/ (function(module) {
-
-eval("module.exports = [{\"id\":0,\"locations\":[0,1]}];\n\n//# sourceURL=webpack:///./src/client/data/areas.json?");
-
-/***/ }),
-
-/***/ "./src/client/data/locations.json":
-/*!****************************************!*\
-  !*** ./src/client/data/locations.json ***!
-  \****************************************/
-/*! exports provided: 0, 1, default */
-/***/ (function(module) {
-
-eval("module.exports = [{\"id\":0,\"title\":\"Tavern\",\"css\":{\"left\":\"200px\",\"top\":\"150px\",\"width\":\"100px\",\"height\":\"100px\",\"background-color\":\"brown\"}},{\"id\":1,\"title\":\"Home\",\"css\":{\"left\":\"250px\",\"top\":\"150px\",\"width\":\"100px\",\"height\":\"150px\",\"background-color\":\"green\"}}];\n\n//# sourceURL=webpack:///./src/client/data/locations.json?");
-
-/***/ }),
-
 /***/ "./src/client/js/client.js":
 /*!*********************************!*\
   !*** ./src/client/js/client.js ***!
@@ -161,7 +139,7 @@ eval("module.exports = [{\"id\":0,\"title\":\"Tavern\",\"css\":{\"left\":\"200px
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var electron__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! electron */ \"electron\");\n/* harmony import */ var electron__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(electron__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _game_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./game.js */ \"./src/client/js/game.js\");\n__webpack_require__(/*! ../scss/main.scss */ \"./src/client/scss/main.scss\");\n\n\n\nelectron__WEBPACK_IMPORTED_MODULE_0__[\"ipcRenderer\"].send('test', 'message');\nelectron__WEBPACK_IMPORTED_MODULE_0__[\"ipcRenderer\"].on('test', function (event, val) {\n  console.log(val);\n}); // listener to position tooltips on mouse\n\ndocument.addEventListener('mousemove', function (e) {\n  const tooltips = document.getElementsByClassName('tooltip');\n  Object.keys(tooltips).forEach(key => {\n    const tooltip = tooltips[key];\n    let offsetX = 20;\n    let offsetY = 20;\n    if (window.innerWidth - e.pageX < 90) offsetX = -90;\n    if (window.innerHeight - e.pageY < 90) offsetY = -50;\n    tooltip.style.left = e.pageX + offsetX + 'px';\n    tooltip.style.top = e.pageY + offsetY + 'px';\n  });\n});\nnew _game_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\n\n//# sourceURL=webpack:///./src/client/js/client.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _game_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./game.js */ \"./src/client/js/game.js\");\n__webpack_require__(/*! ../scss/main.scss */ \"./src/client/scss/main.scss\");\n\n // listener to position tooltips on mouse\n\ndocument.addEventListener('mousemove', function (e) {\n  const tooltips = document.getElementsByClassName('tooltip');\n  Object.keys(tooltips).forEach(key => {\n    const tooltip = tooltips[key];\n    let offsetX = 20;\n    let offsetY = 20;\n    if (window.innerWidth - e.pageX < 90) offsetX = -90;\n    if (window.innerHeight - e.pageY < 90) offsetY = -50;\n    tooltip.style.left = e.pageX + offsetX + 'px';\n    tooltip.style.top = e.pageY + offsetY + 'px';\n  });\n});\nnew _game_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n\n//# sourceURL=webpack:///./src/client/js/client.js?");
 
 /***/ }),
 
@@ -173,7 +151,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var elec
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _data_areas_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../data/areas.json */ \"./src/client/data/areas.json\");\nvar _data_areas_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../data/areas.json */ \"./src/client/data/areas.json\", 1);\n/* harmony import */ var _data_locations_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../data/locations.json */ \"./src/client/data/locations.json\");\nvar _data_locations_json__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../data/locations.json */ \"./src/client/data/locations.json\", 1);\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (class {\n  constructor() {\n    this.areas = null;\n    this.locations = _data_locations_json__WEBPACK_IMPORTED_MODULE_1__;\n    this.setAreas();\n  }\n\n  setAreas() {\n    let result = [];\n\n    _data_areas_json__WEBPACK_IMPORTED_MODULE_0__.forEach(_area => {\n      _area.locations = _area.locations.map(locationId => this.getLocation(locationId));\n      result.push(_area);\n    });\n\n    this.areas = result;\n  }\n\n  getArea(id) {\n    return this.areas.find(a => {\n      return a.id == id;\n    });\n  }\n\n  getLocation(id) {\n    return this.locations.find(l => {\n      return l.id == id;\n    });\n  }\n\n});\n\n//# sourceURL=webpack:///./src/client/js/data.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var electron__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! electron */ \"electron\");\n/* harmony import */ var electron__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(electron__WEBPACK_IMPORTED_MODULE_0__);\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (class {\n  constructor() {\n    this.areas = null;\n    this.locations = electron__WEBPACK_IMPORTED_MODULE_0__[\"ipcRenderer\"].sendSync('request', 'locations');\n    this.setAreas();\n  }\n\n  setAreas() {\n    this.areas = electron__WEBPACK_IMPORTED_MODULE_0__[\"ipcRenderer\"].sendSync('request', 'areas').map(_area => {\n      _area.locations = _area.locations.map(locationId => this.getLocation(locationId));\n      return _area;\n    });\n  }\n\n  getArea(id) {\n    return this.areas.find(a => {\n      return a.id == id;\n    });\n  }\n\n  getLocation(id) {\n    return this.locations.find(l => {\n      return l.id == id;\n    });\n  }\n\n});\n\n//# sourceURL=webpack:///./src/client/js/data.js?");
 
 /***/ }),
 

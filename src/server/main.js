@@ -1,4 +1,5 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
+const fs = require('fs')
 
 let win
 
@@ -28,7 +29,7 @@ app.on('activate', () => {
   }
 })
 
-ipcMain.on('test', function(event, message) {
-  console.log(message)
-  win.webContents.send('test', message + '!!!!!!!!!!')
+ipcMain.on('request', function(event, query) {
+  const val = JSON.parse(fs.readFileSync(__dirname + '/data/' + query + '.json', 'utf8'))
+  event.returnValue = val
 })
