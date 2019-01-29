@@ -131,6 +131,18 @@ eval("\n/**\n * When source maps are enabled, `style-loader` uses a link element
 
 /***/ }),
 
+/***/ "./src/client/js/canvas.js":
+/*!*********************************!*\
+  !*** ./src/client/js/canvas.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (class {\n  constructor() {\n    this.element = document.getElementById('canvas');\n  }\n\n  drawArea(area) {\n    area.locations.forEach(location => this.drawLocation(location));\n  }\n\n  drawLocation(location) {\n    let div = document.createElement('div');\n    div.classList.add('location');\n    Object.entries(location.css).forEach(rule => {\n      div.style[rule[0]] = rule[1];\n    });\n    this.drawTooltip(div, location.title);\n    this.element.appendChild(div);\n  }\n\n  drawTooltip(parent, text) {\n    let tooltip = document.createElement('div');\n    tooltip.classList.add('tooltip');\n    tooltip.textContent = text;\n    parent.appendChild(tooltip);\n  }\n\n});\n\n//# sourceURL=webpack:///./src/client/js/canvas.js?");
+
+/***/ }),
+
 /***/ "./src/client/js/client.js":
 /*!*********************************!*\
   !*** ./src/client/js/client.js ***!
@@ -163,7 +175,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var elec
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _data_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data.js */ \"./src/client/js/data.js\");\n\nconst data = new _data_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n/* harmony default export */ __webpack_exports__[\"default\"] = (class {\n  constructor() {\n    this.canvas = document.getElementById('canvas');\n    this.areaId = 0;\n    this.area = null;\n    this.setArea(0);\n    this.drawArea();\n  }\n\n  setArea(index) {\n    this.area = data.getArea(index);\n  }\n\n  drawArea() {\n    this.area.locations.forEach(location => {\n      let div = document.createElement('div');\n      div.classList.add('location');\n      Object.entries(location.css).forEach(rule => {\n        div.style[rule[0]] = rule[1];\n      });\n      let tooltip = document.createElement('div');\n      tooltip.classList.add('tooltip');\n      tooltip.textContent = location.title;\n      div.appendChild(tooltip);\n      this.canvas.appendChild(div);\n    });\n  }\n\n});\n\n//# sourceURL=webpack:///./src/client/js/game.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _data_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data.js */ \"./src/client/js/data.js\");\n/* harmony import */ var _canvas_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./canvas.js */ \"./src/client/js/canvas.js\");\n\n\nconst data = new _data_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n/* harmony default export */ __webpack_exports__[\"default\"] = (class {\n  constructor() {\n    this.canvas = new _canvas_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\n    this.areaId = 0;\n    this.area = data.getArea(0);\n    this.canvas.drawArea(this.area);\n  }\n\n});\n\n//# sourceURL=webpack:///./src/client/js/game.js?");
 
 /***/ }),
 
